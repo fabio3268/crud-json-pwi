@@ -27,6 +27,9 @@
                         -->
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                </li>
             </ul>
             <form class="d-flex" method="post" action="search-user.php">
                 <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="search">
