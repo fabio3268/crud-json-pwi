@@ -48,11 +48,8 @@ include __DIR__ . "/includes/navigator.php";
 <script type="text/javascript" async>
     //const lista = document.querySelector("#lista");
     const listaUsuarios = async (nome) => {
-        const tabela = await fetch("users/list.php?nome=" + nome);
-        //const respTabela = await tabela.text();
-        // pode voltar json
+        const tabela = await fetch("users/list.php");
         const respTabela = await tabela.json();
-        //lista.innerHTML = respTabela;
         console.log(respTabela);
         respTabela.forEach(function (e) {
             console.log(e);
@@ -67,7 +64,7 @@ include __DIR__ . "/includes/navigator.php";
             cell2.innerHTML = `${e.email}`;
         });
     }
-    listaUsuarios("Fábio");
+    listaUsuarios();
 </script>
 </body>
 </html>

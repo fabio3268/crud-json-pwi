@@ -54,22 +54,15 @@
 <script type="text/javascript" async>
     const formUsers = document.querySelector("#formUsers");
     const retorno = document.querySelector("#retorno");
-
     formUsers.addEventListener("submit", async (e) => {
         e.preventDefault();
         const dataUsers = new FormData(formUsers);
-        dataUsers.append("add",1);
         const dados = await fetch("users/insert.php",{
             method: "POST",
             body: dataUsers,
         });
-        // Recebe Json
         const user = await dados.json();
-        console.log(user);
         retorno.innerHTML = `Nome ${user.name} Email: ${user.email} Senha: ${user.passw}`;
-        // Recebe texto
-        //const resposta = await dados.text();
-        //retorno.innerHTML = resposta;
     });
 </script>
 </body>

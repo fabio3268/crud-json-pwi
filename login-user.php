@@ -12,9 +12,9 @@ include __DIR__ . "/includes/navigator.php";
     <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
     <label for="inputEmail" class="sr-only">Email</label>
-    <input value="fabiosantos@gmail.com" name="email" type="email" id="inputEmail" class="form-control" placeholder="Informe Email..." required autofocus>
+    <input value="" name="email" type="email" id="inputEmail" class="form-control" placeholder="Informe Email..." required autofocus>
     <label for="inputPassword" class="sr-only">Senha</label>
-    <input value="2134567" name="passw" type="password" id="inputPassword" class="form-control" placeholder="Informe Senha..." required>
+    <input value="" name="passw" type="text" id="inputPassword" class="form-control" placeholder="Informe Senha..." required>
     <div class="checkbox mb-3">
         <label>
             <input type="checkbox" value="remember-me"> Esqueci minha senha
@@ -35,7 +35,6 @@ include __DIR__ . "/includes/navigator.php";
 <script type="text/javascript" async>
     const formLogin = document.querySelector("#formLogin");
     const message = document.querySelector("#message");
-
     formLogin.addEventListener("submit", async (e) => {
         e.preventDefault();
         const dataUsers = new FormData(formLogin);
@@ -53,7 +52,7 @@ include __DIR__ . "/includes/navigator.php";
         } else if(user.error == 0) {
             message.classList.remove("alert-danger");
             message.classList.add("alert-success");
-            message.innerHTML = "Logado!";
+            message.innerHTML = `Olá, ${user.name}! Você está logado(a)!`;
         }
         console.log(message);
     });
