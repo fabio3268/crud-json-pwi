@@ -1,11 +1,3 @@
-<?php
-if(file_exists(__DIR__ . "/data-json/cadastroUsuarios.json")){
-    $stringUsers = file_get_contents(__DIR__ . "/data-json/cadastroUsuarios.json");
-    //var_dump($stringUsers);
-    $arrayUsers = json_decode($stringUsers, true);
-    //var_dump($arrayUsers);
-}
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <?php
