@@ -1,8 +1,10 @@
 <?php
     session_start();
-    if($_SESSION["user"]){
+    if(!empty($_SESSION["user"])){
         $user = $_SESSION["user"];
         var_dump($user);
+    } else {
+        header("Location:index.php");
     }
 ?>
 <!DOCTYPE html>

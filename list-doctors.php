@@ -24,11 +24,13 @@ include __DIR__ . "/includes/navigator.php";
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
                 <th scope="col">CRM</th>
+                <th scope="col">Especialidade</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <th scope="row">1</th>
+                <td>...</td>
                 <td>...</td>
                 <td>...</td>
             </tr>
@@ -37,9 +39,8 @@ include __DIR__ . "/includes/navigator.php";
     </div>
 </div>
 <script type="text/javascript" async>
-    //const lista = document.querySelector("#lista");
-    const listaDoctors = async (nome) => {
-        const tabela = await fetch("doctors/list.php");
+    const listaDoctors = async (esp) => {
+        const tabela = await fetch("doctors/list.php?esp=" + esp);
         const respTabela = await tabela.json();
         console.log(respTabela);
         respTabela.forEach(function (e) {
@@ -49,11 +50,13 @@ include __DIR__ . "/includes/navigator.php";
             var cellNum = row.insertCell(0);
             var celName = row.insertCell(1);
             var celCRM = row.insertCell(2);
+            var celEsp = row.insertCell(3);
             celName.innerHTML = `${e.name}`;
             celCRM.innerHTML = `${e.CRM}`;
+            celEsp.innerHTML = `${e.especialidade}`;
         });
     }
-    listaDoctors();
+    listaDoctors("Cardiologia");
 </script>
 </body>
 </html>

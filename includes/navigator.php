@@ -31,7 +31,13 @@
                     <a class="nav-link active" aria-current="page" href="login-user.php">Login</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="logout.php">Sair</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="profile.php">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="list-doctors.php">Médicos</a>
                 </li>
             </ul>
             <form class="d-flex" method="post" action="search-user.php">
