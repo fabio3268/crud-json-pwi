@@ -1,3 +1,9 @@
+<?php
+    // busca as especialidades em um json
+    $stringEsp = file_get_contents(__DIR__ . "/../data-json/data-especialidades.json");
+    // transforma em um vetor
+    $arrayEsp = json_decode($stringEsp, true);
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid bg-success p-2 text-dark bg-opacity-10">
         <a class="navbar-brand" href="index.php">Cadatro Usuários</a>
@@ -36,9 +42,22 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="profile.php">Perfil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="list-doctors.php">Médicos</a>
+                <!-- -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Médicos
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <?php
+                           // percorre o vetor de especialidades para montar o menu das especialidades
+                           // reparem que o link tem um parametro sendo enviado, a especialidade
+                           foreach ($arrayEsp as $esp){
+                              echo "<li><a class=\"dropdown-item\" href=\"list-doctors.php?esp={$esp["nome"]}\">{$esp["nome"]}</a></li>";
+                           }
+                        ?>
+                    </ul>
                 </li>
+                <!-- -->
             </ul>
             <form class="d-flex" method="post" action="search-user.php">
                 <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" name="search">

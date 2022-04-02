@@ -31,12 +31,18 @@ include __DIR__ . "/includes/navigator.php";
     </div>
 </div>
 <script type="text/javascript" async>
+    // esse script recebe por GET a especialida
+    // o javascript captura essa especialidade, evoca a função listaDoctors
+    // enviando a especialidade como parametro
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const esp = urlParams.get('esp');
     const listaDoctors = async (esp) => {
         const tabela = await fetch("doctors/list.php?esp=" + esp);
         const respTabela = await tabela.json();
-        console.log(respTabela);
+        //console.log(respTabela);
         respTabela.forEach(function (e) {
-            console.log(e);
+            //console.log(e);
             var table = document.getElementById("myTable");
             var row = table.insertRow(2);
             var cellNum = row.insertCell(0);
@@ -48,7 +54,8 @@ include __DIR__ . "/includes/navigator.php";
             celEsp.innerHTML = `${e.especialidade}`;
         });
     }
-    listaDoctors("Cardiologia");
+    // evoca a função, enviando a especialidade recebida por GET
+    listaDoctors(esp);
 </script>
 </body>
 </html>
