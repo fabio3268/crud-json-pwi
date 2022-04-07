@@ -37,6 +37,7 @@ include __DIR__ . "/includes/navigator.php";
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const esp = urlParams.get('esp');
+    console.log(esp);
     const listaDoctors = async (esp) => {
         const tabela = await fetch("doctors/list.php?esp=" + esp);
         const respTabela = await tabela.json();

@@ -47,7 +47,7 @@ include __DIR__ . "/includes/navigator.php";
 ?>
 <div class="container">
     <div class="row">
-        <form method="post">
+        <form method="post" id="formUsers">
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
                 <input type="text" name="name" class="form-control" id="name" value="<?=$user["name"];?>">
