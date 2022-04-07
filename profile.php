@@ -18,7 +18,6 @@ include __DIR__ . "/includes/navigator.php";
 ?>
 <div class="container">
     <div class="row" id="welcomeMessage">
-
     </div>
 </div>
 <div class="container">
@@ -53,6 +52,7 @@ include __DIR__ . "/includes/navigator.php";
     </div>
 </div>
 <script type="text/javascript" async>
+    // Mensagem de Boas Vindas
     const welcome = async () => {
         const message = await fetch("users/welcome.php");
         const userObj = await message.json();
@@ -60,9 +60,7 @@ include __DIR__ . "/includes/navigator.php";
         welcomeMessage.innerHTML = `Olá, ${userObj.name}!`;
     }
     welcome();
-
     // UPDATE das Informações do Usuário
-
     const formUsers = document.querySelector("#formUsers");
     const retorno = document.querySelector("#retorno");
     formUsers.addEventListener("submit", async (e) => {
@@ -86,6 +84,7 @@ include __DIR__ . "/includes/navigator.php";
             retorno.classList.add("alert-success");
             retorno.innerHTML = `${user.name}, seus dados foram atualizados!`;
         }
+        welcome();
     });
 </script>
 </body>
